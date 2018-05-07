@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="css/screen.css" />
+	<script src="lib/jquery.min.js"></script>
+	<script src="lib/three.min.js"></script>
+	<script src="lib/OBJLoader.js"></script>
+	<script src="lib/MTLLoader.js"></script>
+	<script src="lib/OrbitControls.js"></script>
+	<script src="lib/stats.min.js"></script>
+	<script src="lib/ThreeGroupLoader.js"></script>
+	<script src="lib/ThreeBase.js"></script>
+	<script src="js/model.js"></script>
+	<script src="js/main.js"></script>
+	<script>
+		$(function() {
+			var stats = new Stats();
+			stats.domElement.style.position = 'absolute';
+			stats.domElement.style.left = '0px';
+			stats.domElement.style.top = '0px';
+			document.body.appendChild(stats.domElement);
+
+			var main = new FTKJ.Main($('#main')[0]);
+
+			render();
+			function render() {
+				main.render();
+				stats.update();
+				requestAnimationFrame(render);
+			}
+		});
+	</script>
+</head>
+<body>
+	<div id="main"></div>
+</body>
+</html>
